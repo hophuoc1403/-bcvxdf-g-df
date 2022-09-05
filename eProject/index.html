@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratchy Nib</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="content/style.css">
+    <script src="app/angular.min.js"></script>
+    <script src="app/angular-route.min.js"></script>
+    <script src="app/app.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+    <header ng-include="'header.html'"></header>
+    <main ng-view></main>
+    <footer ng-include="'footer.html'"></footer>
+
+    <div class="text-right fixed-bottom" ng-controller="divCtrl">
+        <div class="d-inline showtime text-light p-2" style="border-radius: 10px;">
+            {{date | date:"HH:mm:ss" }},
+            {{date | date:"EEEE dd/MM/yyyy" }},
+            GMT: {{date | date:"Z" }}
+        </div>
+    </div>
+</body>
+
+<script src="./app/header.js"></script>
+
+<script src="./bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+
+</html>

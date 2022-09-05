@@ -1,0 +1,146 @@
+@import url(./style.css);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  font-family: "metropolis-medium";
+  padding-inline: 30px;
+  color: azure;
+  padding-block: 10px;
+}
+.menus ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.menus ul li {
+  position: relative;
+  transform: translateY(10px);
+}
+
+.menus ul li a {
+  margin-right: 15px;
+  color: azure;
+  transition: all 0.25s linear;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.menus ul li a:hover {
+  text-decoration: unset;
+  color: aquamarine;
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+}
+
+.right-header span {
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.viewer {
+  position: absolute;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 13px;
+  z-index: 5;
+  background-color: #fff;
+}
+.viewer-box {
+  width: 15px;
+  height: 15px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  margin-right: 3px;
+  animation: view 1s linear infinite reverse;
+}
+
+.menu-responsive {
+  display: none;
+}
+
+.menu-responsive span {
+  margin-left: 10px;
+}
+
+@keyframes view {
+  0% {
+    background-color: aliceblue;
+    transform: scale(0.5);
+  }
+  /* 50% {
+    background-color: beige;
+  } */
+  100% {
+    background-color: rgb(47, 255, 109);
+    transform: scale(1.1);
+  }
+}
+
+.border-bottom-li {
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background-color: rgb(198, 47, 253);
+  bottom: -10px;
+}
+
+.menus ul li:hover .border-bottom-li {
+  width: 90%;
+  transition: all 0.25s linear;
+}
+
+@media screen and (max-width: 1100px) {
+  .menu-responsive {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .menus {
+    display: none;
+  }
+
+  .menus ul {
+    display: block;
+  }
+  .menus ul li {
+    margin-bottom: 20px;
+  }
+  .header {
+    position: relative;
+  }
+  .menu-box:hover .menus {
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    display: block;
+    position: absolute;
+    bottom: -280px;
+    transition: all 0.25s ease;
+    left: 0;
+    z-index: 10;
+  }
+}
+
+.active {
+  color: aquamarine !important;
+}

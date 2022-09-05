@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="./content/feedBack.css">
+
+<div ng-controller="feedBack">
+    <form class="form">
+        <h2>SEND FEEDBACK</h2>
+        <p type="Name:"><input type="text" placeholder="Write your name here.." ng-model="name"></input></p>
+        <p type="Email:"><input required type="email" placeholder="Let us know how to contact you back.." ng-model="mail"></input></p>
+        <p type="Message:"><textarea placeholder="What would you like to tell us.." ng-model="mess"></textarea></p>
+        <button ng-click="subMitForm(name, mail, mess)">Send Message</button>
+        <div class="div">
+            <span class="fa fa-phone"></span>001 1023 567
+            <span class="fa fa-envelope-o"></span> contact@company.com
+        </div>
+    </form>
+</div>

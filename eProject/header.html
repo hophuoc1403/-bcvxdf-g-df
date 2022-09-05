@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./content/header.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu-box">
+            <div class="menu-responsive ">
+                <i style="font-size: 20px;" class="fa-solid fa-bars"></i>
+                <span>menu</span>
+            </div>
+            <div class="menus">
+                <ul>
+                    <li><a ng-click="menuActive('home')" class="{{arrayMenu[4]}}" href="#!">Home</a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                    <li><a ng-click="menuActive('traditional')" class="{{arrayMenu[0]}}"
+                            href="#!traditional">Traditional
+                            Calligraphy</a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                    <li><a ng-click="menuActive('temporary')" class="{{arrayMenu[1]}}"
+                            href="#!contemporary">Contemporary
+                            Calligraphy</a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                    <li><a ng-click="menuActive('design')" class="{{arrayMenu[2]}}" href="#!design">Hand-lettering
+                            & Design</a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                    <li><a ng-click="menuActive('modern')" class="{{arrayMenu[3]}}" href="#!modern">Modern
+                            Calligraphy</a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                    <li><a ng-click="menuActive('about')" class="{{arrayMenu[6]}}" href="#!about">About
+                        </a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                    <li><a ng-click="menuActive('contact')" class="{{arrayMenu[5]}}" href="#!contact">Contact
+                        </a>
+                        <div class="border-bottom-li"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-header">
+            <img class="logo" src="./img/logo.png" alt="">
+            <span>Scratchy Nib</span>
+        </div>
+    </div>
+    <div class="viewer">
+        <div class="viewer-box"></div>
+        <span>{{viewer}} viewers</span>
+    </div>
+</body>
+
+</html>

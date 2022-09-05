@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "metropolis-medium";
+  src: url("../MetropolisFontfamily/Metropolis-Medium.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "metropolis-light";
+  src: url("../MetropolisFontfamily/Metropolis-Light.otf");
+
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Metropolis-semiBoldItalic";
+  src: url("../MetropolisFontfamily/Metropolis-SemiBoldItalic.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* @font-face {
+  font-family: "Metropolis-BlackItalic";
+  src: url("../MetropolisFontfamily/Metropolis-BlackItalic.otf");
+  font-style: normal;
+  font-weight: normal;
+} */
+.showtime{
+  background-color: #177245 !important;
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+}
+
+.card-img1 {
+  width: 100%;
+  object-fit: cover;
+  height: 80%;
+}
+
+.banner {
+  background-image: url("https://thumbs.dreamstime.com/b/ramadan-kareem-banner-arabic-calligraphy-hand-drawn-sketch-kaaba-islamic-lantern-traditional-luxury-design-arabian-145944487.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  /* width: 1; */
+  height: 600px;
+  position: relative;
+  font-family: "metropolis-medium";
+}
+
+.history {
+  position: absolute;
+  top: 15%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  left: 10%;
+  z-index: 5;
+  padding: 20px;
+  background-color: aliceblue;
+  width: 50%;
+}
+
+.history:hover {
+  background-color: black;
+  color: aliceblue;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.25s ease;
+}
+
+.feature p {
+  padding: 20px;
+  background-color: azure;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
+  border-radius: 10px;
+  font-size: 17px;
+  font-family: "Metropolis-semiBoldItalic";
+}
+
+.feature strong {
+  display: inline-block;
+  padding: 20px 5px;
+  border-radius: 50%;
+  border-bottom-right-radius: unset;
+  background-color: #0047ab;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.feature:first-child p:hover {
+  background-color: #0047ab;
+  color: white;
+  transition: all 0.25s ease;
+}
+.feature:last-child p:hover {
+  background-color: #177245;
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.display button {
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 500px;
+  background-color: white;
+  font-weight: 500;
+}
+
+.active {
+  background-color: #177245 !important;
+  color: white;
+}
+
+.display button:hover {
+  background-color: #177245;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+@media screen and (max-width: 850px) {
+  .traditional-boxes,
+  .contemporary-boxes,
+  .design-boxes {
+    justify-content: center;
+  }
+
+  .traditional-box,
+  .contemporary-box,
+  .design-box {
+    width: 90%;
+    margin-bottom: 50px;
+  }
+}

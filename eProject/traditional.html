@@ -1,0 +1,226 @@
+<link rel="stylesheet" href="./content/traditional.css">
+
+<div class="banner">
+    <div class="history">
+        <!-- <h3>What is modern calligraphy?</h3>
+        <p>Modern calligraphy is any calligraphy style that does not follow the fundamental rules of traditional
+            calligraphy
+            scripts such as Copperplate, Spencerian, Italic, Blackletter, etc. Modern calligraphy relies on certain
+            principles of
+            traditional calligraphy. However, it can provide you with more creative freedom.</p> -->
+        <h3>What is Traditional calligraphy ?</h3>
+        <p>Traditional calligraphy comes in a variety of hands, such as Copperplate and Spencerian. Each specific hand
+            has its own
+            set of rules, so it’s helpful to know which one you want to learn before getting started. The vast majority
+            of our
+            students get started with a Copperplate hand, and that’s the one we recommend starting with.</p>
+    </div>
+</div>
+<div class="container d-lg-flex d-md-block mb-5 mt-5">
+    <div class="feature mr-4">
+        <strong>Features : </strong>
+        <p>Traditional is like it sounds, resembling the documents and styles of the past, beautifully.
+            Our alphabets creation is due to the history of calligraphy. Contemporary can be modern scripts,
+            experimental
+            work,
+            expressive and tends to be more personal, some might say artistic. It feels like “our time” vs. the past.
+            Both use the alphabet, but can feel very different. This page is showing examples of traditional
+            calligraphy.
+        </p>
+    </div>
+    <div class="feature ">
+        <strong style="background-color: green;">Method : </strong>
+        <p>Twenty-first-century calligraphers frequently create their own alphabets to reflect their personal aesthetics
+            and
+            personalities, using daring layouts and innovative materials, seeking inspiration in everything around
+            them.BUT, we have to be careful though, as we ride this new wave, we still have to remember the rules that
+            make letters
+            legible and recognizable.
+        </p>
+    </div>
+</div>
+
+<div ng-controller="traditionCrt">
+    <div class="display container">
+        <h3>Display for : <button ng-click="filterActive(0)" class={{filter[0]}}>Arabic</button> <button
+                ng-click="filterActive(1)" class={{filter[1]}}>Indic</button>
+            <button ng-click="filterActive(2)" class={{filter[2]}}>Greek</button>
+        </h3>
+
+
+    </div>
+    <div class="traditional" ng-show="filterBox[0]">
+        <div class="border-top"></div>
+        <div class="traditional-boxes">
+            <div class="traditional-box" ng-repeat="item in TraditionalArabic">
+                <h2>{{item.sub}}<p>{{item.name}}</p>
+                </h2>
+                <span>{{item.date}}</span>
+                <img class="card-img1" src="{{item.img}}" alt="">
+            </div>
+            <!-- <div class="traditional-box">
+                <h2>traditional <p>Islamic Art</p>
+                </h2>
+                <span>30 May2022 - 10 Sep 2022</span>
+                <img class="card-img1"
+                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoGBxQUExYUFBQYGBYZGh8aGxkaGhwdGRwcIB8fIBwiHR8aHysiIiIoHSAcJDQjKCwwMTExGiE3PDcwOyswMS4BCwsLDw4PHBERHDIoISgwMDAwMDAwMDAwMDAyMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMP/AABEIALkBEAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgAEAQMHAgj/xABNEAACAgAEAwUFAwcICAUFAQABAgMRAAQSIQUxQQYTIlFhBzJxgZFCUqEUI2JyscHwFTNjgpKi0dI0Q1OjssLh8VRzg5PDFiQl4uMX/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAECAwT/xAArEQACAgICAQMDAgcAAAAAAAAAAQIREiEDMUEiUWETMnGBkSMzUrHB0fD/2gAMAwEAAhEDEQA/AOf5fi2a+1mZz6d7L/mxcHFcx1zE/wD70v8AmxWyyaiPp/h9MW1iB2r+PTHFPkZ3w40e14hmv/ET+n52Xf8AvYtJxTMjnNL/AO9J/mx5ijGwrF7L5UsaC2TyAHPGMuVmmKNC8QzN/wA9L8TNJ/mxYh4jmDVyyj/1ZN/72NqZcCw2xH7bqvpf0wY4RwBpqY+BNt63Yfo/48vjjJzbHUUBXzs4G08p/wDUk/zYv8PzDuLbNNG1+7I8w2+INfjeDZ7Jx92SrlnrY2AhN+l7dOeNeU7Ktr/OMNP6J3PlzFftwspE3AoNDLRP5enPappqr1PQ/I49w5PMkCs5H6n8olodOVYZo+GRLsIxQJOnYhiRzOq7rcC6rfpjzLwWAlToA0kHYCjXRvMYq2TaNOXzOZFXmICAumtb78tybu8W0nzPR4uXRpD+/GlOB5eye6HnzYjnfK8aMnwqn1K1ROLZANJvy5XpverwspCqJtZMw1hsxGfMASqQRfVZgVxU4/xqfLhQxVw/IjvF5V1EhN7jBCLg8CvrEYv13HMnkfjjxnuDxyujOoKqCumyoHW/CR1FdOZ8sFyBY2DuDcZlmYIGCWNvDK9gUd270EH/AA58rIrLJIpVc0mnYeEHUCTtu0po3y2x6g4SiIEQlaBFj3iT9omuY/6ctsboMiqMzLdtubJNn4nf8cFyB4+DRlcrMpJ/K5HPIhqK9OgOxr1xvMcxFHMSfRN/ja19K543pfWvliLyF86w7ZJQ/k1yxY5mc2KrWAOd8lUDn1Hwxay0TICBNKb6lgT9a6euN2JgtjPDCQrXfS/EFQf+HFWXh7MSTmJrIq9S/s0Vfri7iYLYjUEk3qeXf9T/ACY8tDJd9/JfQ0l/8ON+IBgtgC3yrvJYz0upRyUx7fEBa69R5Y3nKS0FGblBHL+avnufcx5n4SrMH1uHAA1KaJrz0gc+tYuLGaHiJI6/XnXP5+Q64eTHoB8Y4Z9qTOzIWNbMBd0NlWuvM4WeOcMzEDUM3mGBNA6pRvXr4foTyx0B4Lok2RdXy3NiwOdUPp54Fng8kgZZpgwvUAqgaW5X8K2o/XnazkuhqvIiwZrMgEflM/PmXbl+OPT5zMf+In+UjD+PnhtPZAW1yXt4fCBvX2v+nrgdm+y8qAEANexCncE7dav5YWcrs0WAoz5zNKbOZnof0rj6740Pnc0eWam3/pZOX9rBvN5MglSKPkQQfmDuMURlCem42JxtHlYnBAWbiObB/wBJm/8Aek/zYrycYzg5ZnMfKaT/ADYLPlPFd9cVMxkTY3PyvHRHlMZcSPWTANefpgpBBQBxQysY8/4/74KwRmgOe30xzcjN4o3wQAbmqw+dmoRHFp0hWO7AMGJ9TVkXyrpXS8J3Dk8aguI6Pvb+EgbE/OvrhyyGQAgYRylzJdyc+exI3vz6898Yp7FLoIywq1alDVysXj0orkK/isRVq+fMnc3z/djOKMyYmJiYBExMTEwAQjEOJjDuACSQABZJ5ADmT6VgAziYBdju1MeeWZkFd3KVA6mM/wA2xHTVTbdKxp7ddqfyFImC6meQWP6NSDJXqQQo/WvpisHlj5EmmrQx4mMRuGAZTakAgjkQdwfmMeMzCHRka6ZSpo0aIo0RuDR54QzZiYo8EDiMxyMXaJjHrPNwKKFv0u7ZbPneN3EOIwwrqllSNfN2C38L5/LA4u6C9WWMTAzh/HFmcLFDKU6ytGY4vl3lOx+C1vzwrdj+1ckvE81BLsGJEaXspiJUqPUrbH1XFLik0/gnJD5iYVvajxSSDIsY7DO6xlhzVWDEn56dN/pedYLdluMDNZWGfqy+MeTjZ/7wJHoRgweOQ8t0E8TExhmA3JA+O2IGZxMTFPO8SWKSJHDASHSJK8AfbSrHoWsgdCRXUYEr6AuYmJiYAPKoQSdRN1Q2ofCv45YyRy9MZxMAwbxPgiTOHYtYFUK3G+w5UbPO8c+zWXNE8mF/EfwcdR1G6o1V6tq+FXf4VgRDwpNDRTHvKYyEgEBQb5V4rJs1f15FeSoyrs5Y80ynemF/aX/CsU800p8Wqq+7tht4nw8B3Qb6WIsijXnR+WAmZgI2xvDkXsNxtE4aRyww5DLRl6dwqgWTtewulvmbrbC9kEA64M5bN6fImq3F8xzrGPJ2aVoNcGy6eIyAXqUAML3YEABSRuxqiCa03sNy3ZZAFACaABQXbb+ySP8AvgPwPPRtGwRVJjCtq0iza+I6V32ojb0o4MwOCBRJ2Bs+RG2/niUjKTNmJjAN4ziiCYmJiYAJiYBcezWbhlE0YWTLKv52P/WAAnU6bbkKb03uFIre8WuGZJDK+aDMWktPfYxmNWASlvSNlsEffbzxeOrFe6CeMhQdjyOx+B54xjDOBVkCzQs8zz289sSM497LM00GeaMg93ITCx6B/E0d+p0Mo+LeWGb21x//AGsTeUun5MjH/lH0xX9nMS/l/EomUECXWARdNHK+kj1BIN4Je2KO+H392VD+DD9+OqbX1UZQ1Fl/sBmHGU7malkyxMb2dtIAZGv7vdstHyGLjdoVc6ctG+YP3o6EQ+Mr0n9nUfTG/hsaTZeFnRWEkUTMCAQfCpF3zo+eL5G1ChtQ8h5fLGEmsm6NIrQG/k/NzX3s6wKeceWHjP60sgu/VVX44s8P4Bl4W1pEDJ1kcmSQ/wBeQlvoawKTN5llOVzTdzM5GiaEj85HqUPoJHhkFgHbk4IG2GPLxlUVSxYqoBY82IFEmtrPP54JWl/oSSs9nHI14bJ/LWZaG9cMhnCAbuupS6C+rI5rz5bXjroGOe5Twdo5R/tI/wD4kP7VxfC6y/AuRXQc9qMGrhuYrcrob6SJf4Xgd7JclJFlgwbVDMveLyBSVWMcikdQdKkH9E36n+2serIZof0Ln6C/3YG+yiS+GQj7pkH+8Y/vwJ/wWvkVev8AQOcbyck0DxxSmJ2A0yC7BBB6bi6qx54EZeAzlcnn1SSSMa75JKtaVkA23Us6sOho7ahhkxTz8sMRWaV0TSrIHdgopihYb890X8fPGcZVotqy5inxuAvl5lAtjGxWtzrAtCPUOFI9QMUv/qEyf6Nl5ZvJyO6i/tyUSPVVbE/Js9J780UC/diQyPX/AJktKD8EOBRadvQNhpuuKkHE4XcxpKjyAWURwzKP0gpNdOfniiOy8LbzGXMH+mkZ1/sCo/ouKHbqf8kyEn5OixlqjuNQmgG7I01vQoHpqvphpRboFYz4w5PQXgd2Y4wM1lopxzdfEPJxs4/tA16EYJYhqnTGnZi9uXy6/wDfFGTKOSa0KWALr7wayAbtfuggH+BedQQQeR2OBvDsnpklkY22uyxB92uQ1CxQPME3hDQK7T8I0hpkuhVg7jyuySfIVQAwmZtSw2G/ww18b4476kGgxmqoH623XCvmsxyGFHvRoutlHKgmv4vBHLQ35Df92BWSm5H92CmXkOK5Ey0Hch3S6dMpRypEhIWgNvdJI5i6rex06uXD4wsUYAoaFq6vl1rb6YR8uCV7xIxcZGpjupDctSk1W1X11C8F8jxySODxAVpYIxssXFEBt/I9a5YzToicbGjExpycxZbar60COgvmT1v9nSzuxZmTExpzuZEaF6uqAH3mYhUX4sxUfPGyViFJC6iASFBA1HoATsL8zgoR7GAGXz2WySDLRs0jqXKwxL3ktM7MBpX3QNQW2IFAY2twuef/AEiYxp/soCVB9Hl2dvgugYI8P4fFAuiGNY18lFX6k8yfU2caKktiaBv/AN9P93KJ8pZz/wDEm36536Y38N4BFC/eeOSWq72VzJJXUAnZR6KAMC+1/aGSN1yuWBadxuVGoqDyAH3iN7PIb9bFXsNxeUSyZXMs3eg6k7xra68S2TvtTD01emByda0NR8gvsgvd8dz69GEjV+tIjj8CcHPaul8Nn9DGf94o/fgDkpdHaSRfvoR/uFk/auGn2hxauHZkf0d/2WU/uxrP+ZF/gyj9r/UsdjH1ZDKn+hjH0UD92C2FXsFm3/kvLskZkcBkChgvKRxZY7AAC739ATgl/JuYl/n5yi/7LL2g+DSH84f6ujGU163fuaR6Rnj+fyqNEJ5B3iSCSNFt5SwsCkQFiCCRyr6Y8fl+bm/moFhX/aZk+OvSKMk3+sy4t5PJZfLI/dokYVS7kDxFRdszHxNyO5J5YswZtHYqpshUf+q+rSfnpb6YdqtL9xUCx2cMn+lZiWfzS+7h+Hdx1qHTxM23zwscaAj7QZU8tUYG2w3WRB+wY6DjnntBGji3DZQebIh+Al3/AAc4rik5Sr4ZM1SsI+0ntYuXQ5ZUDvLGwfUTSIwK8hzJ3+nrhE7N9ucxkohDGsbIGLeNWLb1YBVhtt5dcddznZ/LTP3kkEbyGvEygttsN/TbCP7HsrHJBmopY0cLKuzqrDcEfaH6OL45Qweuhtq1oK8G9pWVzC6JGbLSEVqNFbPVXqhX6YA5c8MXDuEZcETIqyseUrN3rn4SMSR/VIGFzjnsuysttCWgfyHjS/1WNj5MB6YUcz2Q4pkCZIGYoNy0Ln+8hon4URhKEJfa6G5NHYycLGe45HG0BeYWmakEgvdYyJUUuB7qAvF4jQGpcI3CfazmYwBPGkw8/cc/NQV/u4Ysh7TOHOzNJA0buArsY0fUPJmXxMB5EYS4Zxe1f4JfImNPZWXVlowG1hNUSuCGDrE7Ro4I2OpVBv1xS9pEGvh2Y9ArfR1J/C8e+H9suHOAseZjUCgFIMdeQAZQPkMW+1cJfJ5lQNzDJQ9QhI/EYzpqdtVspPWhd9leSlhiAsvDNGsyNXuSbLIjb8z4SD1CN1vDrhY9lk+rhsP6Otfo7V+BGGfBzO5sIfaiYwQaobGtj5HptjOMFvx2xmUIHF4GjZgwI3P2aB35gcq+GF/iLnVyHL/HDv22G4JYmlsChsL33Bs8vI/HCRnXA/jphw7NU7QP4ZJsLwTy7/j6+uBmSXYADli7ESBuT/B9cXyK2VHoO8MnKyKQNVEbefLb54actw7WsTMFWMf6qrUsdSgnUQCa0789jz2OFLhcqagZC6gdY61X0rcV/wBMPEMsbsZUOoNoJJOy6TvZO45j5g4xSJmy9l4FRdKKFXyAoY2YxW/8emM4ozA/HuKxRTZZZZAiMztqYgJqRKUMTsBb2P0kXBPKZgSIriwGFi9iVPunflYo10vA+bKxZwgyQpJChtC63rb7yg/6v4+/sfdALFhinVL3F5B+Y4xGqht2uF51oe8iBCa9TrWh6nF9aNUbB64VE4fnz3YjSGM5YNFG0hMizRtpUlgm8YCopo7lgOQGGPLR9xDGrE1GiprehelQLN9TV4qUEkqEnsEdj40cTZnYySyuGPVVVqRP7IVv6w8hgf7QOCO2nNQX3kda9PvUN1Yeq9fSvu4DZLjf5Fm5gv5yBnsgeR3BW/tAGvI18CHvhXGYMwLhkDea8nHxU7j48sT5KOacH4g8/F8vmXCgkaGINAsImQH0vb5/LHRO2CXkc0P6CU/RCf3YQe2/DlXiUeXhRV79FYDkodmdTt0B0jlyxqzWZz+WR4Ze9WJlZCrgPHpYFSFY2BsfsnG0r9LZCSd0NPsglvhyD7ski/jq/wCbDdjkvZHtQ2RiaFIhIrOX8TEEEhQQCAdvCOnXB5fad55b6S//AKYjkWUm0VGLSoZO0DzIwaHLmbXE8RAZRpY0ULavse/Z6fPHns7lcwhCzRovdRJCsiPq70LyfTQKUL8J3t2wuSe0/wAst9Zf/wCeKs/tRl+zl41/Wdm/ZpwK8aoMHdnR8c59sz93JkZq9x3P9kxMP34pntvxKYVCo36xQlj/AHtYwG7Vpn+7WbOiTRq0prKgBiCdowfCSAd9I5Yvig4ysU462zrvEuPZaA/nZ40I6Fxq/sjf8Mcp7L9sI8jLnGWMyrK9x0dApWeiSQSNm5V9MGOAey9ZYo5pcwdMiK4WNADTAMPE3ofu41dk+AZdeLZnLPGskaIxjEgDVuhBIIonSx6YqChFSXfuJ1o0ntvxTOErlYdIurjj1EfrSPaj47Y9x+zriGZIbN5nT1pnaVwfQA6B8mx05m0mONQADZoCgEUdANveZB8CcaOO8TXLQSzPyjW682Oyj5sQPnifqtagqBxvsUMn7I8otd5LNIetFEU/LSxH9rFjM+zfhiFFYSKXbQn5w2W0s1cvJT9MMXZ/i6zxRsCC/dRPIB7qtIurTfn108wCpPMWp+12eSFsjmFJ0RykkA/a8DL8bVXH188EZ8jni2TJRSui3w/2e5PJyflReRliVn0yaSFIF6rCi9IBoVzo9MNORzUeZhWSNg0cq7H0OxB8iNwR0IOK3a3h/fZTMRDctG2nci2XxJy/SC4UfYuZxC3iV4Gdtr8cUgokUeaupU2pNEcuZwO5xcm9oPtdJGz2TZ0pw2cnnFJIaO1ARq1H53h6iIoU2qtifMjY8sI/s0Ud9xTLsAVE/ukbEFpVYH0IVcOuRyccUaxRIEjQUqjkBz/bZJ5kknE81ZMcPtRuxMTGqGKixuwTdUNvmBZ28z0GMSwD2yyyFDLpJNadYYAA6hQIre7PwrHPs1EQSSNiK/bhp41CsZMKMWCtZsLzociNzQsG+RGFriCWd9h8sOD2aLoGcPzgHPFz8pB6bX1HrjVkYIqHU+o/64upklO19fpvjSbjZUboN9m83EjapFDKQea6t9qrB6TiOWG6w6dUfhJWkJ8QFovMXe5vyxT4VwGOoS7ahIxA0ttXdltzVhg1CrwyS8IiZdLAkUo57gLWwIryBJ/wGMCZNWWdRYqVcUVvTsb5UQfL15bjFLOfnpTB/qkAaX9It7kfwIGpvTSOTHBJRQochgVwOYGTNJ9sTEsOukogQ/DStf1cUQFcRELcsas1mUjQvIwVRzJ5fx6YWl45Lmw8eWUhLO52LAAbsfsr6dfnWHFWxM38W7XGNmgywWSQHxSHeJOlfpHY+nx3GB2X4Fnsw2uTMLZ6SAX/AFVXl8PDgnwvhEGTgRpJF1O9NK2252pB5/Un51glmRLKh7iIQqBYlmB1/FYgQ3zcr8DjVRZLkkApuwazN4pirhQCAoA5ncCztv54pQdhpsvmIZEkV1SRWb7DBbFkbkEVfW/TBjtpxGWDLZZ0ZjI0kcZk2vbcs1ADciqqvERjZN2zylK0kyRsUBZG1Ag72BtuL6jA4OrQ1JgjtBwwScXycrNpCoPnpaQ3Z+eHN4kKkBzyqj1/AYVMjnYs5mo54SWjhiPiIKgszOo2O/JidwPdw0gDbDm6xT9iI7tnNPY1lUmjzKywrIFaMqXQNsQ4IBYH7ow35zh3DYyFliysbHkriJGN8qBo4Wuws+YgizzroUxIugHf3e90atj6Y8wdiDm+5nbNRlzIC5RTIdRokMWKkG/TG0oJybbohTaSSGKPL8KJoR5MnyqIn8cE8nFluUKQ3dAIsf8Ay4W8/wBg5FakzK0Be8N3/vcU+O+zebvI3jmiLL99WW6II5BvX64zcY/1Gqk32dDkhVaDuQfIf4UcJfthyYfIjQS5EqMABZ5MvT9byxTfszmRRtlYDnFKy/5b+YwI7YDPZeD85LI0ZK7SBWPMUdVG/kcOEUpqhTXpZ0LszGVymWAtgIUBNbDSAv7sKWTBXtBLSkhkA2BPOFG/apwc7HcUdohCSAETahuQWYG7+X1xV4nMYuJZcrQMirZ+Mcgv8AMKvVII9IN8ZycTmOWWR4hDbEh9ClWrUsl80JVbG1164VO2fG5s3lJxloGOWGnXM4IL060Ilqz4q8R6A8jgx2j4ll5DpzV93EVIUKSrSE0SwG9AECuV3gd2/wC12qCSDLRnSqK7uygKqCRAAo5+8VFGtr8sLjW0MO9gMmi5OBAum4ldgNiXYAsT6kn9nlgH7YIw3D76rMjD6Ov/ADYZexGcE2Xy8gINwoNuQKgKw+TAjAr2geCDu1HeSOS4RasJGrO55+g/GsOK/iX8kS+0P8LnDwxON9UaN9VB/fhC9nrHK8RzmQOykl4x5VutfGNgf6owwezvjiZnKR0w72NAki34l0+EGvIgAg8uY6YHdoOHFON5GZf9YsikdbjRrP8AYZR/VwRVOUX/ANQ29KSNfZVxHxniMfIMgl9OaH/5Dhv4VxKPMRiSI2tkeRBHmPhR+BGE7LZEPxzOIeUmUo/1hEuPfs2SUM5BBjJ0yLfiVgLRq6g+JTW/Lyxnzdr8IrjWn+R4xg+gG53+n49BjOK3E8y0cZZF1EdBd157A4yLEjj0bLIx1M1s+5FHZiNyRuar64XuJlt639P4GC0shJIJJ3vne55n4mufpihxCCgRe45EH94OCD2aAjJTVuAL+P8AhglBmQKJH4+eAfDhgghJNDG04qxxehv4VxiNFooWbVGwYEUNJHKxs25Gxog1tWGmDirMrHuyaQSCqAI2sXqNML5Gro7YRuE8LlZqRWYgXt0+fT5+WHns6zd2dbBjfP7VgAMG52RtuDXLyOOdCmkFDhf7S9n3lcT5eQxTgaSQxXWvTddwfwOwPLB8DExRmc9zPZ/OSW+bkKxxgsWdw9ADfQiMRf054eOzWQiy0IjA0k7te5JoXZ672PLFPtRKBHEre7JPCh+GvUfl4a+eCGfWQxv3VCQqdBa6DVsTQPI74cXQPZriycWolhqs+CTmU6Ut+761zJN4p5ftFlpJGgObTUjFChIBYg0dJ+1v6k+mOf8AAeA8Sgz0cQMkUbtbup1RlRuxvddRAoXvZGCkvsljGYjdJi0OsF43FvpG9BlFGzQ3AoEmzjpSgvuZlK70PPEcqs6NG1Kukqt9G+yfkaPyGObcP7GDiFyd9oEbd0yiPUbFMdywo+KuRw8dqe1MGTS3OqSrWJSNR8ifur+kfkDyx57EZJky2t1CPO7zuosaTIbA332TSMTGcowbLos9nuH5fJ5ful/mgCzSlgdQG5Zm5UN+WwrFjI56CaLvIH7xSaDC6sHf3q/ZhfynBxk5PydHZoMwQyo9EI6SIZUG24eEud/9mbvDVBEq0FUAXdAACybJ28ziJPy92JLehL7DRQZj8tEqllL92y7jrJqG3oRvgfx3s7mMm0c+TZ2jRlLBR+cVBzDKNnUegPK6FXgx7LctWWll/wBrmJHH6oIUfiGx67Ydv4MmTGv52cfYBpU/Xbof0Rv51zxtnLNpKzPFYps2dmu2sOd12ypIiWwPhUqNiyluQBIsHlY541dpPaTk42HdEzst2F8MfTm52P8AVBxzPjHDc1OknEJYVjjZlOy6FOrYFF5kcvEed8zhz9kWUykkbt3IOYjYamfxbNegoCKXkRtvtz3GHKEY3IuG1sIQ53NZ4alR4Iz1AaIfJt3PxTbFbtn2cWPITP3jMyKrcqGzrzu2PxJGGvis+Z7xFy/dHca9auxCk7m1ZQu3IeIsegAJxT9oo/8Ax2Z/8sf8a4zjJ5RCXTMdgky8mTgm0ESMrAnxWR3h28ug+mB3GczH/KeVjlBvRFR3/wBpIo5da2xe9mq1w3Lfqsf94+BXamO+MZL9VPwlc4Tl65fqOC0hi4t2ey09+F9yCaYgEjf48wOoxvzHBMs8EkJj0CRSrEWSfI6rs0dxfLHmbMTuSsMaxqDXeS2b9UiUgsOe7MnwIxheHRx3PNI8jICxklbwoADZVFAjWhe4W66nEpteQ+DnWWlznDp5I41mjjaqCx643a/eQaWAsAeR8x0wy+zngkySSZzOFzJINKI+7Kl3bA+7YNBegvbfYPxbtnnJS02XDx5eNgLCWDvt3jEEWdvCOWoDfmeh8PzazRJKnuuoYel8x8jt8saT5XXQvp07Zy7tD7NczHM0uQOqMsSoDhJEB6WxAIHKwb9MMns+7HSwO2Zzb652XQoLayi/a1NZBY8trAF7m9mXjvF0y0RkfnyRbrU3lfQdSeg+QxdL0tsQKFseSihubPT92IfPJxpguNJ2BeGZL/8AI5uettEUSn1063H4x/XAvgB7jieYgPuy2y/H+cX6Kzj5YJ9mO0iZlpVsBtZKLyLR0AD6mwSR0sdMaOLZYfynlXBGoq4YXuAqOQSOYB1EX6Yzk7LiqGTFPjMRaCQKaOkkbXy3/di5jB9MSMRI+z858RVVWgbY1YI6bVgTxDL0SGqwa2Nj5VscOrTyg6pCisodDqWQoyjRZ8Jom+hv0rfClxxQHbSylfslS1AdB47PLnucJFpivk8sOh3xcjyg1e/Xl1wIymaIHLBOHMA9ax0TUkEWmhk4Llsy2pYmJtaaiKIPQ6vnhm4Mc1GugwggVpsqgHMm6Fnn+3C9wHjRiaxRseIHr8+Yw5cP4vDIoIdAx02LrxMBtvz32vz2xzBNv2LrMQOV+gI/fWPWMIwIsbjGcUZgftlkGmyrhBbqRIoHO151XXSWr1rAngPbuIoFzJKONu8AJVvUhRYPyr4csN2F3jHYjLzMXUtExNnTRUnz0nl8iMMaNua7a5NBffaj5IjEn8APqRhbzvbXM5lu5yULKT12aSvM/YQepJ+OCmV9nmWUgyySSfo7ID16W3IHkRgjxTKRpHFlIUEYnfQwQV+aUFpSSN7KDRqO9yDe8XFKwbSQI7Idi4xpzOYbvpG8a2dSejEneQnmGO24Ndcbu2vbwZGaKMR95YLP4tJUH3aNEX7xo9K88M4k/OaAAAEs+lmkr08L/QYG9oOymVzY/PRDX0kXwyDy3HP4MCMNSWVy6JdtfJt4FxWDORRzxq1Bjp1rTK2kq1dPdZhYJG5wUBrfy3xT4ZkI8vCkKeGOJKs0NhuzMdhZNsT5k4572q7TTcRlORyFmM7SSbgMLo2ekd/NjQANgFxhnLXRLlit9nnjXa06U4bwkM2kaO9X3jXPuz06ky7dSKG+DfYv2cxZapcxpln577xxn0B95r+0fkOpM9kuysGRi0xjVIw/OSkeJj5D7q+S/Wzvi1xPNhm/Jk8Ujj85X+qiOzMxHIkWEHMk3yBIqXJfph15ZKj5keDmsvnVmy5OsAaZFIZbBvSykgWLBp1sWvwsV2L7GnIzTsJNaOqqm1MKJJ1Dl93cc99hgzwngMGXLNChXUoWi7uAqkkKutjpFsTQ2wM4128ykFqGMrjmsdEA+rkhfoSfTEX3GHRpFPyboMjnkeQJLlzE8jOrOkjSjUboqrKpoUoOrkB8MaPaFIE4bMruCzKFW6BdtS7KBzPoOg+eFeXtpxPOErksvoXlrVdZHxkcBB9L9cXOynY2Q5g5jPzd7NFTBNZcIx3XW52scwi7Dwk7EXoo4+qT6/cmV9Dh2b4eYMrDC3vRoqtX3qtv7xOF/jUerjWUA+zCzn4Ay1/erDVm85HEA0siICwUF2CgseQBPU0dvQ4oLwo/lzZluQy6xJv17x2fb0Gj6nGSe238lLRcknHehdQAVdRF1ZdtEfxFhx8SuBvatBL3GWZiqzyU5BolI1aRgD5syovzwSzHDIXljmeNWljvQ5u1vn6fXl0rCf7SOKQlIu6nX8oil1AIdTDbfdbAIIU0fI4Ue0NdjbmuGRtA2XACRtGYwFGygigQPQ7/ABxzfLT8QyLNCocWfdCa0Y/eSwefp8xeGTgHtChdQuY/NSciwBMbHz2sr8CKHnhsyuaSRQ8bq6nkykEH5jbBtdj2hG/+lc1mIJJswxOYNd0jmqUG2BA8KlhyXaiN6s1p4V2XzkpWKcyJl1I1K0tih0VQxF+Rqhz9D0PAztVxU5bLSzKLZV8IqxqOwLfojmfh64S2xWLXajsVI0plyyqVbcx2F0n9G6FdedjBXsb2YOW1SS0ZWFUNwo5nfqSQL+GBfs47bzZxjDNFbIuoypstbDxLyBJ+767ADDvgnBwdMFK1omPMkgUaiQAOZPL64ksgVSx5KCT8ALOFXtbn31aL8BCsFqiNtr+d7dNsQ2NKynxTOoVMcTy6A7GmrRzNFdNmr8/O+eFzPZojkCefp+7FqWQ9MDM0xJNfxWHBbNKoX8u1jmKrFqA7Vz+eB2Qbbc4vxjb9mO2aMoO0HsogquWLsC6a36VgLlpjX8eWDeSiZx8ifPpf8fHHFyJo3Q1djs05Glm8IoBTdgFiLXkK1H1O2GbCfBwqRVjlJEekBhrJ1lgS3I7DfkNul72cMfB8y0iWyaN6A32A5bnnt1G2EjOa8ou4xeMPKBzO/lzP0GPWGQD5cywzKp3chBitXAPdglj3mtuQICx6ep1EdTgdJn1/lZYmNH8kJjvqzS24HrpjB+Cthhwie1Ts7NIYs3lgxli2IT+c0g6lZa3JVr2G/i9DjXiqTp61RE7SscJuGRtMk51a0UqKYhSD95Rs1WavkST5Vsz+ejhjaWV1RF5sxof9SegG5xyFPatn1XQwiZhsWaMhr9QrBb+WN+R7P8R4q6yZp3SIcmcaQB/RxirJ+9sPMnGn0K3N6Jzv7UWuM9ocxxab8kyYKQfbY7FlB96QjkvknMnzNAOfAOBw5PRl4QTpXvJHrxu5OiO66fzhA5DQPUm3wzh+V4fAEUrHH1d2AZ282Y1bHyHwAxXzXFEhzKSuSIZ4kVXIICsjOw1BgCoKydaqvjUck7VRVL+5UI7t9l7OR5iXwowgTq1B5T5hR7ifrEv8Bj1lMpBlIWrwILeR3YlmPVnY7sx8z6AdBjbmuJQxpreVFXz1Df4Vz+AwkZzMy8VnEUepMshtif8AibpqO4Vem588Z22q8Fpbsxn+IZnikjQ5YGPLDZmNgH9cjnY5Rj5+hzg3YLKw0XXvn+9J7vyT3frqPrg9w/IxwxrFEulFGw/aSepPU434HLwh2UuLZ3uIiyqCwpI05BpHIWNduQLkX5C8ao+Bocs2XkJcOCZXumkdjbttytuQ5AADkKxW7V5oRHKyuaiTMrrbooZHRWb0DMu/TBzFdRRPkAcHyLRyfk0tyxxIWieQBiUfQEDGqLoVlWwPdK+eN3aftTBk0uU6nPuRL77evov6R+VnbAXtl7QI4Lhy9Szk6dvEkZ5b17zX9gfPyNHst2BeRzmuIkvI51d2xv5ykf8AANgAAfui8b9U9f5EqBqy8S4sSV/N5cmqspFXkT70h89iL6DBjJey9APzuYcnyjRVA+bar+gw4Z3iEMCqHZUB2RALY10REBY7dFBxV/LMzL/MwiNfv5g+L4rChLH4OyH0xOTfWkVlQu5n2ZxV+ankB6d4FYf3QtfHfBnsTwaTLQPHLpJMpYFTYKlUAPIHmDzGL+RyMitrlneRqqqVIx56UUX/AGmbHriEUz0sTrGpvW+nVIPIIp8N8/E11t4T0lu9WO2+z1xHiUUKhpZFQE0oO7MfJFFsx9FBOMcOzrShmMLxptp7yldvM6Oajl71HnsOvnh3CIoWLqpaQimlkJeRh5F23r9EUvpi7hOvBOypkOFQQtI0MSRmQgvoFaiLqwNup5eZ88W8TExLbfYzTmswqC3NLyJokD40Nh6nbCt2yaPWAqnXtZBBWhtVA7EeVDDHxqQrBIQQKU7kee21EUd+fTCtx5HOiV9P51QwCXSigRseu/7cJlRAkiL63gbnCBZusE8wSegHlgPn25it8VBFti3lvdHwxchvzwOy77AYvwnHdNHPBhCEkC7GGDg+cKaWGxFEVsfMfLC5Coq7xbimO2/ltjl5I2dCZ0tuOo8DblmfYpVFVag1HkwBJI+IHTFjNdn0Ztau6sTbGydVm6NmxQ2HlhAyOYugb+eG3gXHCixxyLS3QcttuQfKqAI/DljD4YnGuhjkRrGk1WxB5EUa6WSDXXzxsQGtzfyr9+K0WZXSChLjlYs8gTZPXkR1N4tAYog1RM2ptVVYC8vLf1+uNuPEMqsAykEHqDYPTn15fhj0BgAwY1u6F+dC/riTAlSFbSxGzUDR86Oxr1x6xMMRRyPBYo27yjJL1llOuT1onZB+igUemN3EchHOhjlXUp+oPQg9DixiYG2+wWhP/wD85h1X3z6PLSur+1y/u4aOHZCOBBHEoVR0HMnzJO5PqcWMTAOyYmJiYQjRxDJRzRPFIoaNxTKeo/cQaIPQgHHOuIezziCnuoM6xy52CvLIulfIqoKmh5c/IY6ZiYuHLKHRMoJit2N7BQZMiRj3s/3yKVP1F6H9I7/CyMNOJiYUpOTtjSS6NYgUOXCjWQFLUNRAuhfOtzt6nGzExMIZMTExMICYmJiYAJiYmKzSqGYFmJ3PK9AoHoNhtYu+u+AZo46rtH3aKCZLUknZRV2a3wuGfS2YW10hdKi9QrZVrU2/hr6egGCfEpmbLJJHJIQpom6ZgCQSSPhd9MJ0uYFtV/M/9BiSoosZlyQeW3kPP5YWOKyUSP8AHBCbMEj+L9MBeLTXX+ON+OOxSdIDZPFtTR54oQSVzGLIkvHbJbOaDVBCFv4vbFtWYV1/ZgRHmK3/AMcW4M364xlFm8ZIMw5ljt+OLeWnYVZrn0v9u2A0edGLkWfFANjnnB+xspDX2e4ikTBmF1e+7FflY6E/XDJmO0kGm1kayKAC8iTVkEdK5XyOOajPdQRX+OLS8SQjc0cZ4SQNJnQ+A8VSRFXWNSg6ulke8eW9m26c/Q4vZbOowA1xluRCuDvXIeeOVJxGtgw9PPFiDi6qwIbcEEEHqN/PzwVJeCXFHReJ8QaHxMlx7C15jn7wPntR/wCmN+QzglUOo2PqCRv1okY59l+2jqKEhJOwuiPWwQSbAAu/PG6ftQ7UAdJHVfA3MnfSQK+WCmKjoBmokEbAXdiq63vf4Y2Y5nk+0WiTviA8hDbtvRqrG43/AHYt5nti8iMrMu4CihR9SPUix8Dg37BiP8bWOYPqOV9cesc9yXa0oFRNKoh5b24skgk35ncAfhi/l+3ACaREBQpTq2UfZBFb0K6i66YNixY5g4gOEPI9o9JcuNQc2RqIB9ALqjuD1o4I8P7VwohRQwonSDTVuTudVtt+zn1wA4sa8TAOPtZBpDNqs3YFbVy5kc/4rGxO1GX7vWZFBonRe+xqv++/XAKmGMTAbK9q8sw8T6P1vx5evnjMPanLMGOsKVvYkW36u/Xy2wCphjEwvS9tcsLC2x6cgDy572Pp0xnJ9s8uxprQk0PtD6j/AAw6AYMTAebtNl6OmQgiq8DG996G2/Tet/PFVu2CAOe7c7kJSkD0DHfevIYKAYseZJAosn8QP27YAP2xiCk93KDVgFCAfgfL1rALjHaR5gFKUoNikfyrr8cA0h1dgkhJoWhJ3AJ01Wx57Xv6b9MBU7QCR3rwJQOosAxoHYhgym75Cq5k4TJuONY1FyVBC7NsDzAvpWK0XEgW3sfEGsGMiqQ2Zrjg0aI0RY2RgyAbajYs7A+VAVyG/QK+Yfc9fXHmfPg7Bh+F4G5rOg9R9cOMGNUjdNveBOZQX542vmx0xUM25sj8fwx0Qi0RNo+s8TExMdpwkxjGcTABjExnEwAYxMZxMAGMTGcTAADzGanGZ0AHRa0NFqymtZL/AGSu/wAaArzr5nis0YkYLJI4L/m+6OlaY6NLAWdSjzbmDtsrMQxMAC9nuJ5jojKASRoVmLC3CjxRkWdINeG9Y8S14onGZxatETRI1aHqrWmpQbHiK0N7jJ5HZixMAC3Fm83K2kKYyGl3YUpUOojJJjO1FhpGliFuxeMHi2aEQHdEyFAQdD7sUQ8qoFSxJBIvSQN+TLiYAAcXGJSr3EQRpo6XrdyrWKs6VAfbmHA6E48fyvOQdMG46EONqc9UFk6VrbbvBYsUT+JgApQZlygYodVNYGwtTVeLfxdMCZOPyjTcWxC+LRLQLSaDYKA7DoLs+W1sRxqzPuj9ZP8AiXAABjzeYk1/zkZYRlNKghCwUEMJIhYBYsd22U3pO2Nyz5hnYHXHUwC0sZBjCBjqJ1XekixpoyAdMHsYwAKMXFM2AuvXQVixERYnwMfCvdqSVYDY6Kuvzl3gnwnNZhpUWRT3Zjc6tK7sGTTqIoghSVrSASrEbVRzEwATExnEwAYxMZxMAGMTGcTABjExnEwAYxMZxMAH/9k="
+                    alt="">
+            </div>
+            <div style="margin-top: 30px;" class="border-top"></div>
+
+            <div class="traditional-box">
+                <h2>Art of <p>the Baslama</p>
+                </h2>
+                <span>17 May2022 - 26 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://previews.123rf.com/images/zamirkadyzhev09/zamirkadyzhev091803/zamirkadyzhev09180300242/98099418-arabic-calligraphy-of-the-traditional-islamic-art-of-the-basmala-for-example-ramadan-and-other-festi.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>Art of <p>the Baslama</p>
+                </h2>
+                <span>15 May2022 - 21 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://thumbs.dreamstime.com/z/arabic-calligraphy-traditional-islamic-art-basmala-example-ramadan-other-festivals-translation-name-god-gracious-134047689.jpg"
+                    alt="">
+            </div>
+            <div style="margin-top: 30px;" class="border-top"></div>
+
+            <div class="traditional-box">
+                <h2>Modern <p>Islamic Art</p>
+                </h2>
+                <span>25 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://as1.ftcdn.net/v2/jpg/02/37/09/58/1000_F_237095864_NbbrbU1mgZ8WgyxLxHTaiS68711p890L.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>Roll of <p>Honor certificate</p>
+                </h2>
+                <span>25 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://www.johnstevensdesign.com/wp-content/uploads/2016/03/digesti-inst.jpg" alt="">
+            </div> -->
+        </div>
+        <div style="margin-top: 30px;" class="border-top"></div>
+    </div>
+    <div class="traditional " ng-show="filterBox[1]">
+        <div class="border-top"></div>
+        <div class="traditional-boxes">
+            <div class="traditional-box" ng-repeat="item in TraditionalIndic">
+                <h2>{{item.sub}}<p>{{item.name}}</p>
+                </h2>
+                <span>{{item.date}}</span>
+                <img class="card-img1" src="{{item.img}}" alt="">
+            </div>
+            <!-- <div class="traditional-box">
+                <h2>Roll of <p>Indic Art</p>
+                </h2>
+                <span>19 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Odia_calligraphy_esabada_Odia_magazine_eodissa.jpg/640px-Odia_calligraphy_esabada_Odia_magazine_eodissa.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>traditional <p>Indic Art</p>
+                </h2>
+                <span>30 May2022 - 10 Sep 2022</span>
+                <img class="card-img1" src="https://i.pinimg.com/564x/b8/89/51/b88951e058b294c39b33a7b48abc0c12.jpg"
+                    alt="">
+            </div>
+            <div style="margin-top: 30px;" class="border-top"></div>
+
+            <div class="traditional-box">
+                <h2>Art of <p>the Baslama</p>
+                </h2>
+                <span>17 May2022 - 26 Sep 2022</span>
+                <img class="card-img1" src="https://i.pinimg.com/564x/89/89/d3/8989d3da2174f35f0e04d82af015bb72.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>Art of <p>the Baslama</p>
+                </h2>
+                <span>15 May2022 - 21 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://qph.cf2.quoracdn.net/main-qimg-053e87d9f7df42c08def609fdb01ced1-pjlq" alt="">
+            </div>
+            <div style="margin-top: 30px;" class="border-top"></div>
+
+            <div class="traditional-box">
+                <h2>Modern <p>Indic Art</p>
+                </h2>
+                <span>25 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://as1.ftcdn.net/v2/jpg/02/37/09/58/1000_F_237095864_NbbrbU1mgZ8WgyxLxHTaiS68711p890L.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>Roll of <p>Honor certificate</p>
+                </h2>
+                <span>25 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://www.johnstevensdesign.com/wp-content/uploads/2016/03/digesti-inst.jpg" alt="">
+            </div> -->
+        </div>
+        <div style="margin-top: 30px;" class="border-top"></div>
+    </div>
+    <div class="traditional" ng-show="filterBox[2]">
+        <div class="border-top"></div>
+        <div class="traditional-boxes">
+            <div class="traditional-box" ng-repeat="item in TraditionalGreek">
+                <h2>{{item.sub}}<p>{{item.name}}</p>
+                </h2>
+                <span>{{item.date}}</span>
+                <img class="card-img1" src="{{item.img}}" alt="">
+            </div>
+            <!-- <div class="traditional-box">
+                <h2>Roll of <p>Greek Art</p>
+                </h2>
+                <span>8 June2022 - 25 Oct 2022</span>
+                <img class="card-img1" src="https://i.pinimg.com/474x/0c/fd/5a/0cfd5a1605ec02b8fd2f95bcaef60a54.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>traditional <p>Greek Art</p>
+                </h2>
+                <span>23 July2022 - 15 Sep 2022</span>
+                <img class="card-img1" src="https://i.pinimg.com/474x/cc/9c/9b/cc9c9b3406c0d93fe9bd6240d42b9f2e.jpg"
+                    alt="">
+            </div>
+            <div style="margin-top: 30px;" class="border-top"></div>
+
+            <div class="traditional-box">
+                <h2>Art of <p>the Baslama</p>
+                </h2>
+                <span>17 May2022 - 24 Sep 2022</span>
+                <img class="card-img1" src="https://i.pinimg.com/474x/28/a7/cc/28a7ccd7c8c6ed8492b22d3027385ba1.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>Art of <p>the Baslama</p>
+                </h2>
+                <span>15 May2022 - 21 Sep 2022</span>
+                <img class="card-img1" src="https://i.pinimg.com/474x/86/98/8a/86988a2939e65a3dde6384336f1c7b99.jpg"
+                    alt="">
+            </div>
+            <div style="margin-top: 30px;" class="border-top"></div>
+
+            <div class="traditional-box">
+                <h2>Modern <p>Greek Art</p>
+                </h2>
+                <span>25 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://as1.ftcdn.net/v2/jpg/02/37/09/58/1000_F_237095864_NbbrbU1mgZ8WgyxLxHTaiS68711p890L.jpg"
+                    alt="">
+            </div>
+            <div class="traditional-box">
+                <h2>Roll of <p>Honor certificate</p>
+                </h2>
+                <span>25 May2022 - 25 Sep 2022</span>
+                <img class="card-img1"
+                    src="https://www.johnstevensdesign.com/wp-content/uploads/2016/03/digesti-inst.jpg" alt="">
+            </div>
+        </div> -->
+            <div style="margin-top: 30px;" class="border-top"></div>
+        </div>
+    </div>
